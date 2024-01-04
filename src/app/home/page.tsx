@@ -10,27 +10,33 @@ import { useRef, useState } from 'react'
 
 
 export default function HomePage() {
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <main className={`${plus_Jakarta_Sans.className} h-screen grid text-black bg-[#ffffff]`} style={{
             gridTemplateRows: "auto auto auto auto",
         }}>
+            
             {/* NavBar */}
-            <nav className="grid h-[80px] p-2 text-black" style={{gridTemplateColumns: "auto 1fr auto"}}>
+            <nav className="grid h-[80px] p-2 bg-gray-100 text-black" style={{gridTemplateColumns: "auto 1fr auto", position: 'fixed', top: 0, width: '100%', zIndex: 1000}}>
                 <section style={{marginLeft: '80px', marginTop: '16px', width: '160px'}}>
                     <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '24px', display: 'inline-block' }}>Camilo Gaon </p>
                 </section>
                 <section></section>
-                <section style={{marginLeft: '980px', marginTop: '16px', width: '476px'}}>
-                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block' }}>Sobre mí </p>
-                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block', marginLeft: '48px' }}>Skills </p>
-                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block', marginLeft: '48px' }}>CV </p>
-                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block', marginLeft: '48px' }}>Proyectos </p>
+                <section style={{marginLeft: '780px', marginTop: '16px', width: '476px'}}>
+                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block' }} onClick={() => scrollToSection('sobremi')}>Sobre mí </p>
+                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block', marginLeft: '48px' }} onClick={() => scrollToSection('skills')}>Skills </p>
+                    <p className='cursor-pointer' style={{ fontWeight: '700', fontSize: '20px', display: 'inline-block', marginLeft: '48px' }} onClick={() => scrollToSection('cv')}>CV </p>
                 </section>
                 
             </nav>
 
             {/* Presentacion */}
-            <section className='grid h-[626px] ' style={{gridTemplateColumns: "auto 1fr auto"}}>
+            <section id="sobremi" className='grid h-[626px] ' style={{gridTemplateColumns: "auto 1fr auto", marginTop:'80px'}}>
                 <div className='' style={{width: '484px', height: '352px', marginLeft:'150px', marginTop:'137px'}}>
                     <p className=' text-green-400' style={{ fontWeight: '700', fontSize: '25px', display: 'inline-block' }}>INGENIERO DE SISTEMAS</p>
                     <p  style={{ fontWeight: '600', fontSize: '22px', marginTop:'12px' }}>Hola, soy Camilo Gaon </p>
@@ -62,7 +68,7 @@ export default function HomePage() {
                     <div className="" style={{marginTop: '10px', zIndex: '1'}}>
                         <img
                             className="w-auto h-full "
-                            src="/img/person.png"
+                            src="/img/sin fondo.png"
                             alt=""
                         />
                     </div>
@@ -122,7 +128,7 @@ export default function HomePage() {
             </section>
 
             {/* Skills */}
-            <section className='grid h-[400px] bg-white'>
+            <section id="skills" className='grid h-[400px] bg-white'>
                 <div style={{alignItems: 'center', marginBottom:'50px'}}>
                     <p className='text-green-400' style={{fontSize:'40px', fontWeight:'600', marginTop:'15px', textAlign: 'center'}}>SKILLS</p>
                 </div>
@@ -216,12 +222,12 @@ export default function HomePage() {
             </section>
 
             {/* Proyectos */}
-            <section className='grid h-[500px] bg-white' >
+            <section id="cv" className='grid h-[500px] bg-white' >
                 <div style={{alignItems: 'center', marginTop: '30px'}}>
                     <p className='text-green-400' style={{fontSize:'40px', fontWeight:'600', marginTop:'15px', textAlign: 'center'}}>CV</p>
                 </div>
                 <div className='' style={{width: '1080px',  marginLeft: 'auto', marginRight: 'auto' }}>
-                    <p className='text-justify'>Soy Anderson Camilo Gaon, un estudiante de décimo semestre de ingeniería de sistemas en la Universidad de Nariño. Además, cuento con un técnico en diseño e integración en multimedia, obtenida en el Servicio Nacional de Aprendizaje (SENA), así como en sistemas, gracias a mi título de técnico en sistemas del Instituto Técnico Sistematizado de Nariño.<br/><br/>
+                    <p className='text-justify'>Soy Anderson Camilo Gaon Melo, un estudiante de décimo semestre de ingeniería de sistemas en la Universidad de Nariño. Además, cuento con un técnico en diseño e integración en multimedia, obtenida en el Servicio Nacional de Aprendizaje (SENA), así como en sistemas, gracias a mi título de técnico en sistemas del Instituto Técnico Sistematizado de Nariño.<br/><br/>
                     Mi pasión por la programación y el desarrollo de software me ha llevado a adquirir habilidades en diversos lenguajes de programación, tecnologías y bases de datos. Entre mis competencias se incluyen HTML, CSS, JavaScript, Java, PHP, Python, React, Angular, Laravel, Flask, PostgreSQL, MySQL, así como el manejo experto de herramientas como Git y GitHub. Esta amplia gama de conocimientos me permite abordar proyectos de manera integral, desde la conceptualización hasta la implementación y el mantenimiento.<br/><br/>
                     Además de mi habilidad técnica, me destaco por mi capacidad para trabajar en equipo. Soy receptivo al cambio y a la retroalimentación, lo que me permite adaptarme eficientemente a nuevos desafíos y aprender de experiencias anteriores. Mi enfoque colaborativo se traduce en la creación de soluciones efectivas y eficientes.
                     </p>
